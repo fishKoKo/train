@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>train</title>
+<style>
+    body {
+        margin: 0;
+        background-color: lightgrey;
+    }
+    table {
+        width: 100%;
+        min-height: 100%;
+    }
+    #header {
+        height: 64px;
+        padding: 18px;
+        text-align: center;
+        background-color: lightskyblue;
+        vertical-align: middle;
+    }
+    #header h1 {
+        margin: 0;
+    }
+    #footer {
+        margin: 0;
+        height: 32px;
+        padding: 11px;
+        text-align: center;
+        background-color: lightskyblue;
+        vertical-align: middle;
+        clear: both;
+    }
+    #footer h4 {
+        margin: 0;
+    }
+    #left {
+        float: left;
+        width: 20%;
+        background-color: lightgray;
+    }
+    #left ul {
+        margin: 0;
+        list-style-type: none;
+        padding: 0;
+    }
+    #left ul>li {
+        border-bottom: solid white 2px;
+        padding: 8px;
+    }
+    #left ul>li a {
+        text-decoration: none;
+        margin: 0px 3px;
+        width: 100%;
+        display: inline-block;
+    }
+    #right {
+        float: right;
+        margin: 0;
+        width: 80%;
+        background-color: white;
+    }
+    #right h2 {
+        margin: 3px 3px 3px;
+    }
+    #right p {
+        text-indent:2em;
+    }
+    #right p::first-letter {
+        font-size: 32px;
+    }
+    .center1 {
+        text-align: center;
+        margin: 3px 0px 7px 0px;
+    }
+    .block1 {
+        padding: 12px;
+        width: 94%;
+    }
+    .price::before {
+        content: '￥';
+    }
+</style>
+</head>
+<body>
+    <div id="header">
+        <h1 >来杯咖啡吗？</h1>
+    </div>
+    <div style="height: max-content;">
+        <div id="left">
+            <ul style="list-style-type: none;">
+                <li>
+                    <a href="#latte">拿铁</a>
+                </li>
+                <li>
+                    <a href="#cappuc">卡布奇诺</a>
+                </li>
+                <li>
+                    <a href="#americ">美式咖啡</a>
+                </li>
+                <li style="border-bottom: 0;">
+                    <a href="#macchi">焦糖玛奇朵</a>
+                </li>
+            </ul>
+        </div>
+        <div id="right">
+            <div class="center1">
+                <img src="sign.png" alt="Coffee" />
+                <table border="1" style="width: 50%; margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <th>咖啡</th>
+                        <th>价格</th>
+                    </tr>
+                    <tr>
+                        <td>拿铁</td>
+                        <td class="price">24</td>
+                    </tr>
+                    <tr>
+                        <td>卡布奇诺</td>
+                        <td class="price">24</td>
+                    </tr>
+                    <tr>
+                        <td>美式咖啡</td>
+                        <td class="price">26</td>
+                    </tr>
+                    <tr>
+                        <td>焦糖玛奇朵</td>
+                        <td class="price">27</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="block1">
+                <h2 id="latte">拿铁</h2>
+                <img src="latte.png"  alt="CoffeeLatte" width="100" height="100"/>
+                <p>拿铁是意大利文“Latte”的 音译，代表“牛奶“，拿铁咖啡(CoffeeLatte)是花式咖啡的一种，是咖啡与牛奶交融的极至之作。意式拿铁咖啡为纯牛奶加咖啡，美式拿铁则将部分牛奶替换成奶泡，本地的拿铁多为此种。</p>
+                <h2 id="cappuc">卡布奇诺</h2>
+                <img src="cappuccino.png"  alt="Cappuccino"  width="100" height="100"/>
+                <p>卡布奇诺咖啡是意大利咖啡的一种变化，即在偏浓的咖啡上，倒入以蒸汽发泡的牛奶，此时咖啡的颜色就像卡布奇诺教会修士深褐色外衣上覆的头巾一样，咖啡因此得名。</p>
+                <h2 id="americ">美式咖啡</h2>
+                <img src="americano.png"  alt="CoffeeAmericano"  width="100" height="100"/>
+                <p>美式咖啡是最普通的咖啡。是使用滴滤式咖啡壶所制作出的黑咖啡，又或者是意式浓缩中加入大量的水制成。美式咖啡口味比较淡。因为一般的萃取时间相对较长（大概四五分钟），所以咖啡因含量较高。</p>
+                <h2 id="macchi" >焦糖玛奇朵</h2>
+                <img src="caramel macchiato.png"  alt="CaramelMacchiato"  width="100" height="100"/>
+                <p>焦糖玛琪朵是在香浓热牛奶上加入浓缩咖啡、香草，再淋上纯正焦糖而制成的饮品，融合三种不同口味。Macchiato意大利文，意思是“烙印”和“印染”，中文音译“玛奇朵”。“Caramel”意思是焦糖。焦糖玛琪朵，寓意“甜蜜的印记”。</p>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <h4 >版权所属 &copy; fishKOKO</h4>
+    </div>
+</body>
+</html>

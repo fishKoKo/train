@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>danmu</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .header {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .screen_container {
+      position: relative;
+      width: 1000px;
+      height: 610px;
+      margin: 3px auto 5px;
+      background: white;
+      border: 1px solid #ddd;
+      overflow: hidden;
+      transition: all 0.4s ease-out;
+    }
+
+    .screen_toolbar {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h2>JQUERY弹幕实验型</h2>
+  </div>
+  <div class="screen_container">
+  </div>
+  <div class="screen_toolbar">
+    <input id="screenBulletText" type="text" style="height:20px; width: 220px;" placeholder="二营长啊啊啊啊啊啊" />
+    <button class="send">发射</button>
+    <button class="clear">清屏</button>
+  </div>
+  <script src="./js/jquery-3.5.1.min.js"></script>
+  <script>
+
+    var timers = []; // 弹幕定时器
+
+    var isShow = true; // 控制弹幕显隐变量
+
+    $(".send").on("click", function () { // 监听发送按钮
+
+      var jqueryDom = createScreenbullet($("#screenBulletText").val()); // 创建弹幕
+
+      addInterval(jqueryDom);// 添加定时任务
+    });
+
+    $(".clear").on("click", function () { // 监听关闭弹幕按钮
+      if (isShow) {
+        $(".bullet").css("opacity", 0);
+        isShow = false;
+      } else {
+        $(".bullet").css("opacity", 1);
+        isShow = true;
+      }
+    });
+
+    function createScreenbullet(text) { // 新建一个弹幕
+      var jqueryDom = $("<div class='bullet'>" + text + "</div>");
+      var fc = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random()) + ")";
+      var fs = Math.floor((Math.random() + 1) * 24) + "px";
+      var right = 0;
+      var top = Math.floor(Math.random() * 600) + "px";
+      top = parseInt(top) > 500 ? "500px" : top;
+      jqueryDom.css({
+        "position": 'absolute',
+        "color": fc,
+        "font-size": fs,
+        "right": right,
+        "top": top
+      });
+      $(".screen_container").append(jqueryDom);
+      return jqueryDom;
+    }
+
+    function addInterval(jqueryDom) { // 为弹幕添加定时任务
+      var i = 0;
+      var speed = Math.floor(Math.random() * 5) + 1;
+      var timer = setInterval(function () {
+        jqueryDom.css({
+          right: (i += speed) + "px"
+        })
+        if (jqueryDom.offset().left + jqueryDom.width() < $(".screen_container").offset().left) {
+          jqueryDom.remove();
+          clearInterval(timer);
+        }
+      }, 10);
+      timers.push(timer);
+    }
+  </script>
+</body>
+
+</html>
